@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+    db:
+        image: mysql:8.0.34
+        container_name: msqdb
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: datboi
+            MYSQL_USER: ${MSQL_USER}
+            MYSQL_PASSWORD: ${MSQL_PASSWORD}
+            MYSQL_DATABASE: ${MSQL_DB}
+
+        ports:
+            - 3306:3306

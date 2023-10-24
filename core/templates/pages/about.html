@@ -1,0 +1,27 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block title %}Companybook - Conexões ao seu alcance 🌐{% endblock title %}
+{% block content %}
+<link rel="stylesheet" href={% static 'css/about.css' %}>
+<section class="section about-section gray-bg" id="about">
+  <div class="container">
+    <div class="row align-items-center justify-content-around flex-row-reverse">
+      <div class="col-lg-6">
+        <div class="about-text">
+          <h3 class="dark-color">Transformando Ideias em Conexões</h3>
+          <h4 class="theme-color"> A História por Trás do Companybook</h4>
+          <p>Alan Tanaka e Bruno Bastos, amigos desde os tempos de faculdade, trouxeram sua parceria única para a cidade de Várzea Alegre, Ceará. Juntos, eles deram vida à ideia do Companybook, combinando a visão empreendedora de Bruno com a habilidade em programação de Alan, resultando em uma plataforma inovadora que simplifica a busca por empresas da região.</p>
+          <p>Com um profundo conhecimento em desenvolvimento web, Alan viu uma oportunidade única: empreender em sua própria cidade. Bruno, guiado pela incerteza do tradicional e impulsionado pelo desejo de causar impacto, transformaram o Companybook em um farol de conexão local.</p>
+          <p>Hoje, o Companybook está apenas nos primeiros passos de sua jornada, mas a ambição é clara: transformar essa ideia inovadora em um recurso valioso para sua cidade. A busca por reconhecimento é aliada ao desejo de fazer a diferença, melhorando o acesso às informações locais. A parceria, habilidade e determinação projetam o Companybook como uma ferramenta essencial para todos que buscam simplicidade e conexões em Várzea Alegre.</p>
+          
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="about-img">
+          <img src={% static 'images/p1.png' %}>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

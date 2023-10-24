@@ -1,0 +1,8 @@
+.tab tbody tr {
+	height: 70px;
+	overflow: hidden;
+}
+.tab tbody tr td {
+	padding-top: 0;
+	padding-bottom: 0;
+}

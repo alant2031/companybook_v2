@@ -1,0 +1,34 @@
+<form method="get" action="{% url 'search' %}">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="estados"><strong>Estado:</strong></label>
+      <select class="form-select" name="location" id="estados">
+        <option value="n">Todos</option>
+        {% for uf in estados %}
+        <option value={{uf.0}}>{{uf.1}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <label for="categorias"><strong>Categoria:</strong></label>
+      <select class="form-select" name="category" id="categorias">
+        <option value="t">Todos</option>
+        {% for cat in categories %}
+        <option value={{cat.pk}}>{{cat.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label for="search_term"><strong>Nome:</strong></label>
+      <input class="form-control" type="text" name="search_term" id="search_term" placeholder="Ex: Genesis Informática">
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+      <button class="btn btn-secondary fw-semibold mt-1" type="submit">
+        <i class="bi bi-search"></i>{{"  "}}Buscar 
+      </button>
+    </div>
+  </div>
+</form>

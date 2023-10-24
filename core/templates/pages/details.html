@@ -1,0 +1,85 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block title %}{{sub.company.name}} - Companybook{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href={% static 'css/details.css' %}>
+<div id="details" class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="project-info-box bg-white mt-0">
+                <p class="mb-0">
+                    <span class="fw-bold mr-10 va-middle hide-mobile">Compartilhe:</span>
+                    <a href="" id="facebook-share-btt" rel="nofollow" target="_blank" class="btn btn-xs btn-facebook btn-circle btn-icon mr-5"><i class="bi bi-facebook"></i></a>
+                    
+                    <a href="" id="whatsapp-share-btt" rel="nofollow" target="_blank" class="btn btn-xs btn-whatsapp btn-circle btn-icon mr-5"><i class="bi bi-whatsapp"></i></a>
+                    <a href="" id="telegram-share-btt" rel="nofollow" target="_blank" class="btn btn-xs btn-telegram btn-circle btn-icon mr-5"><i class="bi bi-telegram"></i></a>
+                </p>
+            </div>
+            <div class="project-info-box bg-white mt-0">
+                <h5>{{sub.company.name}}</h5>
+                <p class="mb-0">{{sub.desc|default:sub.company.name}}</p>
+            </div>
+            {% if sub.ytb_id %}
+            <div class="project-info-box bg-white mt-0">
+                <iframe width="420" height="345" src="https://www.youtube.com/embed/{{sub.ytb_id}}">
+                </iframe>
+            </div>
+            {% endif %}
+            <div class="project-info-box bg-white">
+                <p><b>Cidade:</b> {{sub.company.cidade}} - {{sub.company.uf}}</p>
+                <p><b>Telefone:</b> {{sub.company.tel1}}</p>
+                <p><b>Data abertura:</b> {{sub.opening_d|default:"Não disponível"}}</p>
+                <p><b>Categoria:</b> {{sub.company.categoria1}} {% if sub.company.categoria2 %}| {{sub.company.categoria2}}{% endif %}</p>
+                <p><b>Expediente: </b>{{sub.opening_h|default:"Não disponível"}}</p>
+                <p><b>Whatsapp:</b>
+                    {% if sub.wpp %}
+                    <a class="btn btn-outline-success px-1 fw-bold" href={{sub.wpp}}>link whatsapp</a>
+                    {% else %}
+                    Não disponível
+                    {% endif %}
+                </p>
+                <p><b>Facebook:</b>
+                    {% if sub.facebook %}
+                    <a class="btn btn-outline-primary px-1 fw-bold" href={{sub.facebook}}>link facebook</a>
+                    {% else %}
+                    Não disponível
+                    {% endif %}
+                </p>
+                <p><b>Instagram:</b>
+                    {% if sub.instagram %}
+                    <a class="btn btn-outline-danger px-1 fw-bold" href={{sub.instagram}}>link instagram</a>
+                    {% else %}
+                    Não disponível
+                    {% endif %}
+                    
+                </p>
+                <p class="mb-0"><b>Website:</b>
+                    {% if sub.website %}
+                    <a class="btn btn-outline-dark px-1 fw-bold" href={{sub.website}}>link website</a>
+                    {% else %}
+                    Não disponível
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            {% include "partials/carousel.html" with p1=sub.photo1 p2=sub.photo2 p3=sub.photo3 p4=sub.photo4 %}
+            <div class="container-md project-info-box bg-white">
+                <p><b>Endereço:</b> {{sub.company.endereco|default:"Não disponível"}}</p>
+                {% if sub.iframe %}
+                    {{sub.iframe|safe}}
+                    {% else %}
+                    <p>Sem localização</p>
+                {% endif %}
+            </div>
+            
+        </div><!-- / column -->
+    </div>
+</div>
+<script src={% static 'js/sfb.js' %}></script>
+<script src={% static 'js/sem.js' %}></script>
+<script src={% static 'js/swp.js' %}></script>
+<script src={% static 'js/stg.js' %}></script>
+{% endblock content %}
